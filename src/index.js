@@ -72,7 +72,7 @@ function changeCity(event) {
   let cityName = event.target.value;
   let cityTime = moment().tz(`${cityName}`);
 
-  citiesList.innerHTML = `
+  citiesList.innerHTML += `
    <div class="city">
           
             <h3>${cityName.split("/")[1]}</h3>
