@@ -74,6 +74,9 @@ function changeCity(event) {
     ".cities-list"
   );
   let cityName = event.target.value;
+  if (cityName === "current") {
+    cityName = moment.tz.guess();
+  }
   let cityTime = moment().tz(`${cityName}`);
   let cityTimeHour = cityTime.format(
     "h:mm:ss [<small>]A[</small>]"
