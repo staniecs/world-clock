@@ -1,7 +1,19 @@
 h1 {
   text-align: center;
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
   font-size: 40px;
+}
+h2 {
+  font-size: 17px;
+  text-align: center;
+  margin: 0 0 15px 0;
+}
+.local {
+  font-size: 20px;
+}
+.local-date {
+  font-weight: 100;
+  font-size: 14px;
 }
 h3 {
   font-size: 30px;
@@ -58,3 +70,5 @@ footer {
   color: #77628c;
   margin: 15px;
 }
+
+/* bluish color 71a0a5 */
