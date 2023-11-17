@@ -74,19 +74,18 @@ function changeCity(event) {
 
   citiesList.innerHTML = `
    <div class="city">
-          <div>
+          
             <h3>${cityName.split("/")[1]}</h3>
-
+    <div class="date-time">
+    <div class="time">${cityTime.format(
+      "h:mm:ss"
+    )} <small>${cityTime.format(
+    "A"
+  )}</small></div>
             <div class="date">${cityTime.format(
               "D MMMM YYYY"
             )}</div>
-          </div>
-          <div class="time">${cityTime.format(
-            "h:mm:ss"
-          )} <small>${cityTime.format(
-    "A"
-  )}</small></div>
-        </div>
+               </div>
   `;
 }
 
@@ -98,4 +97,3 @@ citySelectElement.addEventListener(
 );
 updateTime();
 setInterval(updateTime, 1000);
-
