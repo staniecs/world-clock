@@ -54,13 +54,17 @@ function updateTime() {
   let localTimeElement = document.querySelector(
     ".local-time"
   );
-  localTime = moment().format(
-    "h:mm:ss [<small>]A[</small>]"
-  );
+  let localTimeZoneElement =
+    document.querySelector(".local-time-zone");
+  let localTimeZone = moment.tz.guess();
+  let localTime = moment()
+    .tz(`${localTimeZone}`)
+    .format("h:mm:ss [<small>]A[</small>]");
   let localDateElement = document.querySelector(
     ".local-date"
   );
-  localDate = moment().format("D MMMM YYYY");
+  let localDate = moment().format("D MMMM YYYY");
+  localTimeZoneElement.innerHTML = `${localTimeZone}`;
   localTimeElement.innerHTML = `${localTime}`;
   localDateElement.innerHTML = `${localDate}`;
 }
@@ -71,22 +75,25 @@ function changeCity(event) {
   );
   let cityName = event.target.value;
   let cityTime = moment().tz(`${cityName}`);
+  let cityTimeHour = cityTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+  );
+  let cityTimeDate = cityTime.format(
+    "D MMMM YYYY"
+  );
 
-  citiesList.innerHTML += `
+  function changeCityTime() {
+    citiesList.innerHTML += `
    <div class="city">
           
             <h3>${cityName.split("/")[1]}</h3>
     <div class="date-time">
-    <div class="time">${cityTime.format(
-      "h:mm:ss"
-    )} <small>${cityTime.format(
-    "A"
-  )}</small></div>
-            <div class="date">${cityTime.format(
-              "D MMMM YYYY"
-            )}</div>
+    <div class="time">${cityTimeHour}</div>
+            <div class="date">${cityTimeDate}</div>
                </div>
   `;
+  }
+  changeCityTime();
 }
 
 let citySelectElement =
