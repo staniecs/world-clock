@@ -97,6 +97,9 @@ function changeCity(event) {
   `;
   }
   changeCityTime();
+  setTimeout(() => {
+    changeCity(event);
+  }, 1000);
 }
 
 let citySelectElement =
