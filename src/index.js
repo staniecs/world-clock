@@ -70,9 +70,8 @@ function updateTime() {
 }
 
 function changeCity(event) {
-  let citiesList = document.querySelector(
-    ".cities-list"
-  );
+  let selectedCityElement =
+    document.querySelector("#selected-city");
   let cityName = event.target.value;
   if (cityName === "current") {
     cityName = moment.tz.guess();
@@ -86,7 +85,7 @@ function changeCity(event) {
   );
 
   function changeCityTime() {
-    citiesList.innerHTML += `
+    selectedCityElement.innerHTML = `
    <div class="city">
           
             <h3>${cityName.split("/")[1]}</h3>
@@ -96,6 +95,7 @@ function changeCity(event) {
                </div>
   `;
   }
+
   changeCityTime();
   setTimeout(() => {
     changeCity(event);
@@ -108,5 +108,5 @@ citySelectElement.addEventListener(
   "change",
   changeCity
 );
-updateTime();
+// updateTime();
 setInterval(updateTime, 1000);
