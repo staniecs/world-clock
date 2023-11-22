@@ -61,7 +61,9 @@ select {
   text-decoration: none;
   color: #78628d;
 }
-
+/* .cities-list {
+  display: inline;
+} */
 .date-time {
   text-align: right;
   line-height: 1;
